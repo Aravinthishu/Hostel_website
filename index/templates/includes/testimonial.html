@@ -1,0 +1,62 @@
+{% load static %}
+
+<div id="testimonial" class="container overflow-hidden m-auto">
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for item in testimonial %}
+        <div class="swiper-slide">
+          <div class="grid mt-20 md:grid-cols-2 md:items-center gap-6 md:h-[400px] font-[sans-serif] max-w-4xl mx-auto relative px-4 md:mt-4 md:before:absolute md:before:right-0 md:before:w-[300px] md:before:rounded-md md:before:h-full md:before:bg-orange-100">
+            <div class="flex items-center">
+              {% if item.image %}
+                <img src="{{item.image.url}}" class="object-contain h-[150px] max-sm:h-32 rounded-md" />
+              {% else %}
+                <img src="{% static 'images/about.webp' %}" class="object-contain h-[150px] max-sm:h-32 rounded-md" />
+              {% endif %}
+              <div class="ml-6">
+                <div>
+                  <h4 class="text-base font-semibold text-gray-800">{{item.name}}</h4>
+                  <p class="text-xs text-gray-500 mt-0.5">{{item.email}}</p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="relative">
+              {% if item.title %}
+                <h2 class="text-gray-800 text-2xl font-semibold">{{item.title}}</h2>
+              {% endif %}
+              <p class="mt-6 text-sm text-gray-500">{{item.content}}</p>
+            </div>
+          </div>
+          <div class="hidden md:block">
+            <div class="swiper-button-next text-gray-400"></div>
+            <div class="swiper-button-prev text-gray-400"></div>
+        </div>
+        </div>
+      {% endfor %}
+    </div>
+  
+
+
+  </div>
+</div>
+  
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1, // Number of slides to show at a time
+      spaceBetween: 30, // Space between slides
+      loop: true, // Enable looping
+      autoplay: {
+        delay: 3000, // Delay in milliseconds for automatic movement
+        disableOnInteraction: false, // Autoplay continues even after interaction
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+  

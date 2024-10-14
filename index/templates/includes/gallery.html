@@ -1,0 +1,61 @@
+<section id="gallery" class="container m-auto mt-5">
+    <div class="flex items-center justify-center py-4 md:py-8 flex-wrap">
+        <!-- Button to show all categories -->
+        <button type="button" onclick="filterGallery('')" class="text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800">
+            All categories
+        </button>
+        <!-- Buttons for each category -->
+        {% for category in gallery_category %}
+        <button type="button" onclick="filterGallery('{{ category.id }}')" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">
+            {{ category.name }}
+        </button>
+        {% endfor %}
+    </div>
+
+    <!-- Gallery images displayed in a grid -->
+    <div id="gallery-container" class="masonry-columns">
+        {% for image in gallery %}
+        <div class="gallery-item">
+            <img class="h-auto w-full rounded-lg" src="{{ image.image.url }}" alt="">
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<style>
+
+</style>
+
+<script>
+    // Function to fetch gallery images based on the category
+    function filterGallery(categoryId) {
+        // Send an AJAX request to filter the gallery
+        fetch(`/filter_gallery?category=${categoryId}`)
+        .then(response => response.json())
+        .then(data => {
+            // Clear the current gallery
+            const galleryContainer = document.getElementById('gallery-container');
+            galleryContainer.innerHTML = '';
+
+            // If no images, show a message
+            if (data.gallery.length === 0) {
+                galleryContainer.innerHTML = '<p>No images found for this category.</p>';
+                return;
+            }
+
+            // Add the filtered images to the gallery
+            data.gallery.forEach(imageData => {
+                const imgElement = document.createElement('img');
+                imgElement.src = imageData.image_url;
+                imgElement.className = 'h-auto w-full rounded-lg mb-5';
+
+                const divElement = document.createElement('div');
+                divElement.className = 'gallery-item'; // Added gallery-item class
+                divElement.appendChild(imgElement);
+
+                galleryContainer.appendChild(divElement);
+            });
+        })
+        .catch(error => console.error('Error fetching gallery:', error));
+    }
+</script>

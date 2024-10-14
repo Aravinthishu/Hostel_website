@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero-title, .hero-desc{
+    animation: slideUp 1s ease-in-out;
+}
+
+.hero-img{
+    animation: slideRight 1s ease-in-out;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes slideUpCard {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-up-card{
+    animation: slideUpCard 1s ease-in-out;
+
+}
+
+
+
+/* Initially, the image is at its normal size */
+.zoom-in-image {
+  transform: scale(0);
+  transition: transform 1.5s ease; /* Smooth transition */
+}
+
+/* The class that applies the zoom effect */
+.zoom-in {
+  transform: scale(1); /* Adjust the scale value as needed */
+}
+
+
+
+
+
+

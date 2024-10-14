@@ -1,0 +1,25 @@
+{% load static %}
+{% for hero in hero %}
+
+<section id="home" class="container flex m-auto h-auto md:h-screen mt-5 md:mt-10">
+    <!-- Text Section -->
+    <div class="w-full md:w-1/2 h-auto m-0 md:h-3/4 md:m-auto p-10 bg-blue-50 rounded-md">
+        <h1 class="text-4xl mt-50 md:text-5xl lg:text-6xl md:mt-20 lg:mt-50 font-bold hero-title ">{{ hero.title }}</h1>
+        <p class="font-semibold text-md mt-5 w-3/4 hero-desc delay-200">
+            {{ hero.description }}
+        </p>
+        <a href="{{ hero.button }}">
+            <button class="text-white bg-[#235784] px-4 py-3 mt-5 rounded-md font-bold hover:bg-white hover:text-[#235784] hover:border-[#235784]-1 duration-500">
+                Contact us
+            </button>
+        </a>
+    </div>
+
+    <!-- Image Section -->
+    <div class="w-1/2 relative hidden md:flex">
+        <img src="{{ hero.image.url }}" alt="logo" class="absolute h-screen w-full rounded-md animate-slide-right hero-img" />
+    </div>
+</section>
+
+
+{% endfor %}
