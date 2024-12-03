@@ -40,8 +40,7 @@ def filter_gallery(request):
     ]
     
     return JsonResponse({'gallery': gallery_data})
-
-
+    
 def contact_form(request):
     if request.method == 'POST':
         name = request.POST.get('name')

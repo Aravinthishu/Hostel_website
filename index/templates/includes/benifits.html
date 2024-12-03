@@ -1,68 +1,87 @@
 {% load static %}
 
+<section
+  id="features"
+  class="container m-auto flex flex-col xl:flex-row p-10 mt-10"
+>
+  <!-- Left Content -->
+  <div class="w-full mt-3 flex flex-col justify-center">
+    <h2 class="text-4xl font-bold leading-tight w-full">
+      We have everything<br />
+      you need
+    </h2>
+    <p class="text-lg text-gray-600 mt-5">
+      Posuere morbi leo urna molestie at elementum eu facilisis sed. Diam
+      phasellus vestibulum lorem sed risus ultricies tristique.
+    </p>
 
-    <section id="features" class="container m-auto flex flex-col xl:flex-row  p-10 mt-20">
-        
-        <!-- Left Content -->
-        <div class=" w-full mt-3 flex flex-col justify-center">
-            <h2 class="text-4xl font-bold leading-tight">We have everything<br> you need</h2>
-            <p class="text-lg text-gray-600 mt-5">
-                Posuere morbi leo urna molestie at elementum eu facilisis sed. Diam phasellus vestibulum lorem sed risus ultricies tristique.
-            </p>
-            
-            <!-- Features List -->
-            <div class="flex flex-wrap flex-col  mt-5">
-                <div class="flex w-full md:w-1/2 gap-5 text-lg text-gray-600 justify-center items-center mt-10">
-                    <img src="{% static 'images/icon_wifi.png' %}" alt="WiFi Icon"/>
-                    <p>Free available high speed WiFi</p>
-                </div>
-                <div class="flex w-full md:w-1/2 gap-5 text-lg text-gray-600 justify-center items-center mt-10">
-                    <img src="{% static 'images/icon_location.png' %}" alt="Location Icon"/>
-                    <p>Convenient location in the center</p>
-                </div>
-                <div class="flex w-full md:w-1/2 gap-5 text-lg text-gray-600 justify-center items-center mt-10">
-                    <img src="{% static 'images/icon_-baggage.png' %}" alt="Baggage Icon"/>
-                    <p>Free storage of luggage of any size</p>
-                </div>
-                <div class="flex w-full md:w-1/2 gap-5 text-lg text-gray-600 justify-center items-center mt-10">
-                    <img src="{% static 'images/icon_parking.png' %}" alt="Parking Icon"/>
-                    <p>Parking place allocated to you</p>
-                </div>
-            </div>
+    <!-- Features List -->
+    <div class="flex flex-wrap flex-col mt-5">
+      <div
+        class="flex w-full md:w-1/2 gap-5 text-lg text-gray-600 justify-center items-center mt-10"
+      >
+        <img src="{% static 'images/icon_wifi.png' %}" alt="WiFi Icon" />
+        <p>Free available high speed WiFi</p>
+      </div>
+      <div
+        class="flex w-full md:w-1/2 gap-5 text-lg text-gray-600 justify-center items-center mt-10"
+      >
+        <img
+          src="{% static 'images/icon_location.png' %}"
+          alt="Location Icon"
+        />
+        <p>Convenient location in the center</p>
+      </div>
+      <div
+        class="flex w-full md:w-1/2 gap-5 text-lg text-gray-600 justify-center items-center mt-10"
+      >
+        <img src="{% static 'images/icon_-baggage.png' %}" alt="Baggage Icon" />
+        <p>Free storage of luggage of any size</p>
+      </div>
+      <div
+        class="flex w-full md:w-1/2 gap-5 text-lg text-gray-600 justify-center items-center mt-10"
+      >
+        <img src="{% static 'images/icon_parking.png' %}" alt="Parking Icon" />
+        <p>Parking place allocated to you</p>
+      </div>
+    </div>
 
-            <!-- Contact Button -->
-            <a href="#">
-                <button class="bg-[#235784] px-4 py-3 rounded-md mt-6 mb-6 text-white font-bold hover:bg-[#1c4769] transition-colors">
-                    Contact us
-                </button>
-            </a>
-        </div>
-        
-        <!-- Right Image -->
-        <div class=" flex justify-center mt-8 md:mt-0 zoom-in-image ">
-            <img src="{% static 'images/about.webp' %}" alt="Hero Image" class="m-auto w-full  object-cover"/>
-        </div>
-    
-    </section>
+    <!-- Contact Button -->
+    <a href="#">
+      <button
+        class="px-4 py-3 rounded-md mt-6 mb-6 text-white font-bold transition-colors bg-[#4db848] hover:bg-transparent hover:text-[#235784] border-2 border-[#4db848]"
+      >
+        Contact us
+      </button>
+    </a>
+  </div>
 
-
+  <!-- Right Image -->
+  <div class="flex justify-center mt-8 md:mt-0 zoom-in-image">
+    <img
+      src="{% static 'images/about.webp' %}"
+      alt="Hero Image"
+      class="m-auto w-full object-cover"
+    />
+  </div>
+</section>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function () {
     // Select the image element
     const imgElement = document.querySelector(".zoom-in-image");
 
     // Create the IntersectionObserver
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Add the zoom-in class when the image is in view
-                imgElement.classList.add("zoom-in");
-            }
-        });
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Add the zoom-in class when the image is in view
+          imgElement.classList.add("zoom-in");
+        }
+      });
     });
 
     // Observe the image element
     observer.observe(imgElement);
-});
+  });
 </script>

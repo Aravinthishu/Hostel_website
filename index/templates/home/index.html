@@ -3,7 +3,6 @@
 
 {% block content %}
 
-
 {% if messages %}
     <ul class="messages w-auto absolute right-5">
         {% for message in messages %}
@@ -12,14 +11,12 @@
     </ul>
 {% endif %}
 
-
 {% include "includes/herosection.html" %}
 {% include "includes/hostel-rooms.html " %}
 {% include "includes/benifits.html" %}
-{% include "includes/ratings.html" %}
+{% include "includes/gallery.html"%}
 {% include "includes/testimonial.html" %}
 {% include "includes/acom.html" %}
-{% include "includes/gallery.html" %}
 {% include "includes/contact.html" %}
  
 <a href="#home" class="z-10">
